@@ -1,0 +1,213 @@
+@CHARSET "ISO-8859-1";
+
+* {
+	color: #686868;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+div.panel_1180 {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5px;
+	font-size: 16px;
+	border-style: none;
+	width: 1180px;
+}
+
+div.panel_740 {
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 14px;
+	padding: 5px;
+	width: 740px;
+}
+
+div.panel_860 {
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 14px;
+	padding: 5px;
+	width: 860px;
+	max-width: 960px;
+}
+
+div.panel_492 {
+	width: 492px;
+	height: 425px;
+	border-style: none;
+	padding: 0;
+}
+
+div.panel_615 {
+	width: 615px;
+	border-style: none;
+	padding: 0;
+	height: 425px;
+}
+
+.without_padding {
+	padding: 0;
+}
+
+.ui-button {
+	background: rgb(225, 46, 32) !important;
+	width: 100px;
+}
+
+.ui-button-text {
+	color: white;
+}
+
+.ui-widget-header {
+	background: rgb(225, 46, 32) !important;
+}
+
+.ui-tooltip {
+	font-size: 12px;
+}
+
+.ui-growl-message {
+	font-size: 12px;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0px;
+	background-color: gray;
+	width: 100%;
+	padding: 0px !important;
+	margin: 0px !important;
+}
+
+.div_footer>.ui-panel>.ui-panel-content {
+	background-color: #E4E4E4;
+}
+
+.div_footer>.ui-panel {
+	padding: 0;
+	border: 0;
+}
+
+.layout-north {
+	width: 100%;
+}
+
+.header-docsis {
+	background-color: #d02e10;
+	background-image: linear-gradient(0deg, #901a11 0%, #d02e10 100%);
+	box-shadow: 0 1px 15px rgba(0, 0, 0, 0.5);
+	height: 80px;
+	bottom: 0;
+	font-size: 1.1em;
+	border-radius: 0;
+	border: 0;
+}
+
+.menu-docsis {
+	background-color: #eee;
+	background-image: linear-gradient(0deg, #dfdfdf 0%, #eeeeee 100%);
+	box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.2);
+	height: 35px;
+	bottom: 0;
+	font-size: 1.1em;
+	border-radius: 0;
+	border: 0;
+	padding-bottom: 0px !important;
+	padding-top: 0px !important;
+}
+
+.menu-docsis .ui-widget-content {
+	background: transparent !important;
+	border: 0;
+}
+
+.header-docsis .ui-widget-content {
+	background: transparent !important;
+	border: 0;
+}
+
+.panel-header .ui-panelgrid-cell {
+	border: 0 !important;
+	padding: 0;
+}
+
+.upper-case {
+	text-transform: uppercase;
+}
+
+.file-text-area {
+	height: 250px;
+	max-height: 250px;
+}
+
+.menu-docsis .ui-panel-content {
+	padding: 0 !important;
+}
+
+.menu-docsis .ui-panel-content .ui-menubar {
+	margin-left: 20px;
+	padding: 0 !important;
+}
+
+.ui-menuitem-text {
+	font-size: 14px !important;
+}
+
+.item-menu-docsis {
+	padding-left: 15px !important;
+	padding-right: 15px !important;
+	padding-top: 8px !important;
+	padding-bottom: 8px !important;
+	border-right-color: #CBCBCB !important;
+	border-right-width: 1px !important;
+	-webkit-border-radius: 0px !important;
+	-moz-border-radius: 0px !important;
+	border-radius: 0px !important;
+	color: #686868 !important;
+}
+
+.ui-panel-title {
+	color: white;
+}
+
+.ui-layout-unit {
+	padding: 0 !important;
+	margin: 0 !important;
+	border: 0 !important;
+}
+
+.ui-layout-pane-center {
+	font-size: 14px;
+}
+
+.ui-layout-pane-north .ui-layout-unit-content {
+	height: 160px !important;
+}
+
+.footer div {
+	background-color: #E4E4E4 !important;
+	height: 31px !important;
+}
+
+.ui-messages-info {
+	margin-left: auto !important;
+	margin-right: auto !important;
+	margin-top: 0px !important;
+	margin-bottom: 5px !important;
+	font-size: 12px !important;
+	font-weight: normal !important;
+	padding: 5px;
+	width: 740px;
+}
+
+.input-config {
+	width: 250px;
+}
+
+.ui-dialog-title {
+	color: white !important;
+}

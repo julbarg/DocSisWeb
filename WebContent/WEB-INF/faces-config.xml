@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
+	version="2.1">
+
+	<navigation-rule>
+		<display-name>login.xhtml</display-name>
+		<from-view-id>/login.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{loginManaged.autenticar}</from-action>
+			<from-outcome>true</from-outcome>
+			<to-view-id>/pages/docsis.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<display-name>docsis.xhtml</display-name>
+		<from-view-id>/pages/docsis.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{docSisManaged.generarArchivo}</from-action>
+			<from-outcome>true</from-outcome>
+			<to-view-id>/pages/docsis_file.xhtml</to-view-id>		
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<display-name>docsis_file.xhtml</display-name>
+		<from-view-id>/pages/docsis_file.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{docSisManaged.compilarArchivo}</from-action>
+			<from-outcome>true</from-outcome>
+			<to-view-id>/pages/docsis_resume.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<display-name>docsis.xhtml</display-name>
+		<from-view-id>/pages/docsis.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{docSisManaged.compilarInicio}</from-action>
+			<from-outcome>true</from-outcome>
+			<to-view-id>/pages/docsis_resume.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<display-name>configuracion.xhtml</display-name>
+		<from-view-id>/config/configuracion.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{configManaged.guardarConfiguracion}</from-action>
+			<from-outcome>true</from-outcome>
+			<to-view-id>/config/configuracion_resume.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+</faces-config>

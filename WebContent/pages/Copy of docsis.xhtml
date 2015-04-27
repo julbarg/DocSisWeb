@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>DocSis</title>
+	<h:outputStylesheet library="css" name="style.css" />
+</h:head>
+
+<h:body>
+	<h:form id="form">
+		<p:panel styleClass="header-docsis">
+			<h:graphicImage library="images" name="claro_white.png" alt="claro" height="70" width="155"
+				styleClass="width: 20%; margin-top: -10px !important;" />
+		</p:panel>
+		<p:panel styleClass="menu-docsis">
+			<p:menubar>
+				<p:menuitem styleClass="item-menu-docsis" value="Inicio"
+					actionListener="#{docSisManaged.goInicio}" icon="ui-icon-home" immediate="true" />
+				<p:menuitem styleClass="item-menu-docsis" value="Configuración" icon="ui-icon-wrench"
+					actionListener="#{docSisManaged.goConfiguracion}" immediate="true"
+					rendered="#{docSisManaged.userConfigManaged}" />
+				<p:menuitem styleClass="item-menu-docsis" value="Salir" icon="ui-icon-close"
+					actionListener="#{docSisManaged.cerrarSesion}" immediate="true" />
+			</p:menubar>
+		</p:panel>
+		<br />
+		<p:growl id="growl" showDetail="false" life="3000" showSummary="true" />
+		<p:panel id="panel_docsis" styleClass="panel_740" header="DocSis">
+			<h:panelGrid columns="4">
+
+				<p:outputLabel for="VPNIdentifier" value="VPN Identifier" />
+				<p:inputText id="VPNIdentifier" value="#{docSisManaged.docsis.VPNIdentifier}" required="true"
+					label="VPNIdentifier" title="VPN Identifier" maxlength="10">
+					<f:validateLength minimum="1" maximum="10" />
+				</p:inputText>
+				<p:message for="VPNIdentifier" />
+				<p:tooltip id="toolVPNIdentifier" for="VPNIdentifier" showEvent="focus" hideEvent="blur" />
+
+				<p:outputLabel for="SVLAN" value="S-VLAN" />
+				<p:inputText id="SVLAN" value="#{docSisManaged.docsis.SVLAN}" required="true" label="S-VLAN"
+					maxlength="4" title="Entre #{docSisManaged.minVLAN} y #{docSisManaged.maxVLAN}">
+					<f:validateLongRange minimum="#{docSisManaged.minVLAN}" maximum="#{docSisManaged.maxVLAN}" />
+				</p:inputText>
+				<p:message for="SVLAN" />
+				<p:tooltip id="toolSVLAN" for="SVLAN" showEvent="focus" hideEvent="blur" />
+
+				<p:outputLabel for="CVLAN" value="C-VLAN" />
+				<p:inputText id="CVLAN" value="#{docSisManaged.docsis.CVLAN}" required="true" label="C-VLAN"
+					maxlength="4" title="Entre #{docSisManaged.minVLAN} y #{docSisManaged.maxVLAN}">
+					<f:validateLongRange minimum="#{docSisManaged.minVLAN}" maximum="#{docSisManaged.maxVLAN}" />
+				</p:inputText>
+				<p:message for="CVLAN" />
+				<p:tooltip id="toolCVLAN" for="CVLAN" showEvent="focus" hideEvent="blur" />
+
+				<p:outputLabel for="anchoBandaSubida" value="Ancho de Banda Subida" />
+				<p:inputText id="anchoBandaSubida" value="#{docSisManaged.docsis.anchoBandaSubida}"
+					required="true" label="Ancho de Banda Subida" maxlength="3"
+					title="Entre #{docSisManaged.minAncho} y #{docSisManaged.maxAncho}">
+					<f:validateLongRange minimum="#{docSisManaged.minAncho}" maximum="#{docSisManaged.maxAncho}" />
+				</p:inputText>
+				<p:message for="anchoBandaSubida" />
+				<p:tooltip id="toolAnchoBandaSubida" for="anchoBandaSubida" showEvent="focus" hideEvent="blur" />
+
+				<p:outputLabel for="anchoBandaBajada" value="Ancho de Banda de Bajada" />
+				<p:inputText id="anchoBandaBajada" value="#{docSisManaged.docsis.anchoBandaBajada}"
+					required="true" label="Ancho de Banda de Bajada" maxlength="3"
+					title="Entre #{docSisManaged.minAncho} y #{docSisManaged.maxAncho}">
+					<f:validateLongRange minimum="#{docSisManaged.minAncho}" maximum="#{docSisManaged.maxAncho}" />
+				</p:inputText>
+				<p:message for="anchoBandaBajada" />
+				<p:tooltip id="toolAnchoBanda" for="anchoBandaBajada" showEvent="focus" hideEvent="blur" />
+
+				<p:outputLabel for="macAddress" value="MAC Address" />
+				<p:inputText id="macAddress" styleClass="upper-case" value="#{docSisManaged.docsis.macAddress}"
+					required="true" label="MAC Address" title="Ej: 3D:F2:C9:A6:B3:4F o 3D-F2-C9-A6-B3-4F">
+					<f:validateRegex pattern="#{docSisManaged.expresionRegular}"></f:validateRegex>
+				</p:inputText>
+				<p:message for="macAddress" />
+				<p:tooltip id="toolMacAddress" for="macAddress" showEvent="focus" hideEvent="blur" />
+
+				<p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+				<p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false"
+					resizable="false" showHeader="false">
+					<p:graphicImage library="images" name="loading.gif" />
+				</p:dialog>
+
+				<p:dialog header="Manual de Usuario - DocSis" widgetVar="manual" modal="true" draggable="false"
+					width="1000" height="500" position="center">
+					<object type="application/pdf" data="/DocSisWeb/resources/documents/manual.pdf?pfdrid_c=true"
+						height="500px" width="100%">
+						Your browser can't display pdf, <a
+							href="/DocSisWeb/resources/documents/manual.pdf?pfdrid_c=true">click</a> to download pdf
+						instead.
+					</object>
+				</p:dialog>
+
+				<br />
+				<f:facet name="footer">
+					<p:commandButton value="Generar" action="#{docSisManaged.generarArchivo}"
+						update="growl, panel_docsis" />
+					<p:commandButton value="Compilar" action="#{docSisManaged.compilarInicio}"
+						update="growl, panel_docsis" style="margin-left:20px;" />
+					<p:commandButton value="Limpiar" update="panel_docsis" process="@this"
+						actionListener="#{docSisManaged.reset}" style="margin-left:20px;" />
+					<p:commandButton value="?" type="button" onclick="PF('manual').show();"
+						style="margin-left:20px; width: 40px; " />
+				</f:facet>
+			</h:panelGrid>
+		</p:panel>
+		<div id="div_footer">
+			<p:panel styleClass="footer">
+				<h:graphicImage library="images" name="claro_logo.gif" height="40" alt="claro" />
+			</p:panel>
+		</div>
+	</h:form>
+</h:body>
+
+</html>

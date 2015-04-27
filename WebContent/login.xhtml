@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>DocSis</title>
+	<h:outputStylesheet library="css" name="style.css" />
+</h:head>
+<h:body>
+	<h:form>
+		<p:growl id="growl" showDetail="false" life="3000" showSummary="true" />
+		<p:panel id="panel_login" styleClass="panel_1180">
+			<h:panelGrid columns="2" cellpadding="2">
+				<p:panel styleClass="panel_615">
+					<h:panelGrid columns="1" cellpadding="2">
+						<h:graphicImage library="images" name="login.jpg" alt="claro_login" />
+					</h:panelGrid>
+				</p:panel>
+				<p:panel styleClass="panel_615">
+					<h:panelGrid columns="1" cellpadding="2">
+						<br></br>
+						<h:graphicImage library="images" name="claro.gif" height="100" alt="claro" />
+						<h:outputLabel for="username" value="Nombre de Usuario" />
+						<p:inputText id="username" value="#{loginManaged.usuario.userName}" required="true"
+							label="Nombre de Usuario" size="50" />
+						<p:message for="username" />
+						<h:outputLabel for="password" value="Contraseña" />
+						<p:password id="password" value="#{loginManaged.usuario.password}" required="true"
+							label="Contraseña" size="50" />
+						<p:message for="password" />
+						<br></br>
+						<f:facet name="footer">
+							<p:commandButton value="Iniciar" action="#{loginManaged.autenticar}" ajax="false" />
+							<p:commandButton value="Ayuda" type="button" onclick="PF('manual').show();"
+								style="margin-left:20px;" />
+						</f:facet>
+					</h:panelGrid>
+
+					<p:dialog header="Manual de Usuario - DocSis" widgetVar="manual" modal="true" width="1000"
+						height="500">
+						<object type="application/pdf" data="/DocSisWeb/resources/documents/manual.pdf?pfdrid_c=true"
+							height="500px" width="100%">
+							Your browser can't display pdf, <a
+								href="/DocSisWeb/resources/documents/manual.pdf?pfdrid_c=true">click</a> to download pdf
+							instead.
+						</object>
+					</p:dialog>
+				</p:panel>
+			</h:panelGrid>
+		</p:panel>
+		<div id="div_footer">
+			<p:panel styleClass="footer">
+				<h:graphicImage library="images" name="claro_logo.gif" height="40" alt="claro" />
+			</p:panel>
+		</div>
+	</h:form>
+</h:body>
+
+</html>

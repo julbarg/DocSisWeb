@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14217627174520" configfile="/DocSisWeb/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="122" y="380" id="pf14217651281915" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14217651281916" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="docsis.xhtml" x="338" y="380" id="pf14217651281918" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf14218673614310 pf14218783905843" inlinks="pf14217651281916" path="/pages/docsis.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="docsis_file.xhtml" x="554" y="178" id="pf14218673614311" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf14218783764341" inlinks="pf14218673614310" path="/pages/docsis_file.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="pages/docsis_resume.xhtml" x="770" y="380" id="pf14218783764342" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf14218783764341 pf14218783905843" path="/pages/docsis_resume.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="configuracion.xhtml" x="122" y="764" id="pf14220256749590" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf14220256749591" path="/config/configuracion.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="config/configuracion_resume.xhtml" x="338" y="764" id="pf14220256749592" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf14220256749591" path="/config/configuracion_resume.xhtml"/>
+  <links id="pf14217651281916" target="pf14217651281918" source="pf14217651281915" outcome="true" fromaction="#{loginManaged.autenticar}"/>
+  <links id="pf14218673614310" target="pf14218673614311" source="pf14217651281918" outcome="true" fromaction="#{docSisManaged.generarArchivo}"/>
+  <links id="pf14218783764341" target="pf14218783764342" source="pf14218673614311" outcome="true" fromaction="#{docSisManaged.compilarArchivo}"/>
+  <links id="pf14218783905843" target="pf14218783764342" source="pf14217651281918" outcome="true" fromaction="#{docSisManaged.compilarInicio}"/>
+  <links id="pf14220256749591" target="pf14220256749592" source="pf14220256749590" outcome="true" fromaction="#{configManaged.guardarConfiguracion}"/>
+</pageflow:Pageflow>
