@@ -19,8 +19,7 @@ import com.claro.docsisejb.util.Constante;
 import com.claro.docsisweb.util.Util;
 
 
-@ManagedBean(
-   name = "docSisManaged")
+@ManagedBean(name = "docSisManaged")
 @SessionScoped
 public class DocSisManaged {
 
@@ -58,7 +57,7 @@ public class DocSisManaged {
    private String nameFileOut;
 
    private boolean userConfigManaged;
-   
+
    private String expresionRegular;
 
    public String getUserSession() {
@@ -123,7 +122,7 @@ public class DocSisManaged {
       cargarExpresionRegular();
       this.docsis = new DocSisDTO();
       this.docsis.setVPNIdentifier(VPN_IDENTIFIER_DEFAULT);
-      
+
    }
 
    private void cargarExpresionRegular() {
@@ -142,7 +141,7 @@ public class DocSisManaged {
             Util.addMessageInfo("Su Sesion ha cadudado");
             return false;
          } catch (Exception e1) {
-            LOGGER.error("Error validando sesión", e1);
+            LOGGER.error("Error validando sesiï¿½n", e1);
             return false;
          }
       }
@@ -162,7 +161,7 @@ public class DocSisManaged {
          return true;
       } else {
          Util.addMessageFatal("Ha ocurrido un error");
-         LOGGER.error("Error validando sesión");
+         LOGGER.error("Error validando sesiï¿½n");
          return false;
       }
 
@@ -173,15 +172,24 @@ public class DocSisManaged {
       try {
          compilerEJB.compilar(nameFileOut);
          Util.addMessageInfo(Util.DOCSIS, "El archivo ha sido compilado y enviado correctamente.");
-         auditEJB.auditarGeneracionDocSis(docsis, Util.getUserName());
+         auditar();
 
          return true;
       } catch (Exception e) {
          Util.addMessageFatal("Ha ocurrido un error");
-         LOGGER.error("Error compilando archivo: " + e.getMessage());
-         e.printStackTrace();
+         LOGGER.error("Error compilando archivo: ", e);
 
          return false;
+      }
+
+   }
+
+   private void auditar() {
+      try {
+         auditEJB.auditarGeneracionDocSis(docsis, Util.getUserName());
+      } catch (Exception e) {
+         Util.addMessageFatal("Ha ocurrido un error");
+         LOGGER.error("Error auditando registro", e);
       }
 
    }
@@ -220,7 +228,7 @@ public class DocSisManaged {
 
    public void cerrarSesion() {
       try {
-         Util.addMessageInfo("Sesión cerrada correctamente");
+         Util.addMessageInfo("Sesiï¿½n cerrada correctamente");
          Util.logout();
          Util.redirecionar(Constante.URL_SALIR);
       } catch (IOException e) {
