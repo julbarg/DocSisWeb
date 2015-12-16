@@ -14,8 +14,6 @@ public class ConfigDTO implements Serializable {
 
    private String pathData;
 
-   private String configConsola;
-
    private String serverFTP;
 
    private String portFTP;
@@ -45,14 +43,6 @@ public class ConfigDTO implements Serializable {
 
    public void setPathData(String pathData) {
       this.pathData = pathData;
-   }
-
-   public String getConfigConsola() {
-      return configConsola;
-   }
-
-   public void setConfigConsola(String configConsola) {
-      this.configConsola = configConsola;
    }
 
    public String getServerFTP() {

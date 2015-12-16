@@ -43,12 +43,12 @@ public class LoginManaged {
             session.setAttribute(Util.USER_CONFIG_MANAGED,this.usuario.isConfigManaged());
             return true;
          }else{
-            Util.addMessageFatal("Usuario y/o Contrase�a Incorrecta");
+            Util.addMessageFatal("Usuario y/o Contraseña Incorrecta");
             return false;
          }
          
       } catch (RemoteException | ServiceException e) {
-         Util.addMessageFatal("Usuario y/o Contrase�a Incorrecta");
+         Util.addMessageFatal("Usuario y/o Contraseña Incorrecta");
          LOGGER.error("Autenticacion", e);
          return false;         
       } catch (Exception e) {

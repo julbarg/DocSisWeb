@@ -141,7 +141,7 @@ public class DocSisManaged {
             Util.addMessageInfo("Su Sesion ha cadudado");
             return false;
          } catch (Exception e1) {
-            LOGGER.error("Error validando sesi�n", e1);
+            LOGGER.error("Error validando sesión", e1);
             return false;
          }
       }
@@ -161,7 +161,7 @@ public class DocSisManaged {
          return true;
       } else {
          Util.addMessageFatal("Ha ocurrido un error");
-         LOGGER.error("Error validando sesi�n");
+         LOGGER.error("Error validando sesión");
          return false;
       }
 
@@ -228,7 +228,7 @@ public class DocSisManaged {
 
    public void cerrarSesion() {
       try {
-         Util.addMessageInfo("Sesi�n cerrada correctamente");
+         Util.addMessageInfo("Sesión cerrada correctamente");
          Util.logout();
          Util.redirecionar(Constante.URL_SALIR);
       } catch (IOException e) {

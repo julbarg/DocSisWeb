@@ -14,11 +14,9 @@ public class Constante {
 
    private static Logger LOGGER = LogManager.getLogger(Constante.class.getName());
 
-   public static final String PATH_DOCSIS_PROPERTIES = "C:/Julian/Claro/DocSis/config/docsis.properties";
+   public static final String PATH_DOCSIS_PROPERTIES = "/usr/docsis/config/docsis.properties";
 
    public static final String FILE_TEMPLATE_FILE_CFG = readProperties("FILE_TEMPLATE_FILE_CFG");
-
-   public static final String CMD = "CMD";
 
    public static final String DOCSIS_EXECUTE = readProperties("DOCSIS_EXECUTE");
 

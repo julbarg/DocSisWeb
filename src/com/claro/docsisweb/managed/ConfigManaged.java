@@ -32,7 +32,7 @@ public class ConfigManaged {
 
    public boolean guardarConfiguracion() {
       if (validarSesion() && configuracionEJB.guardarConfiguracion(config)) {
-         Util.addMessageInfo(Util.CONFIG, "El archivo de configuración ha sido modificado exitosamente");
+         Util.addMessageInfo(Util.CONFIG, "El archivo de configuraciÃ³n ha sido modificado exitosamente");
          return true;
       }
       return false;

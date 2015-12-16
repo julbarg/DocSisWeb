@@ -32,7 +32,7 @@ public class SFTPEJB implements SFTRemote {
    private ChannelSftp channelSftp;
 
    private JSch jsch;
-   
+
    private FTPDTO ftpDTO;
 
    public void upLoad(String fileNamePath) throws JSchException, SftpException, FileNotFoundException {
@@ -67,6 +67,6 @@ public class SFTPEJB implements SFTRemote {
       channelSftp.exit();
       session.disconnect();
 
-   }   
+   }
 
 }

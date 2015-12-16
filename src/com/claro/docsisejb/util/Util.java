@@ -17,7 +17,7 @@ import org.apache.log4j.Logger;
 
 
 public class Util {
-   
+
    private static Logger LOGGER = LogManager.getLogger(Util.class.getName());
 
    public static final String PATH_DOCSIS_DATA = "PATH_DOCSIS_DATA";
@@ -51,15 +51,15 @@ public class Util {
       String pathFileConfig = Constante.readProperties(PATH_DOCSIS_DATA) + nameFileOut;
       return pathFileConfig;
    }
-   
-   private static String replaceAddress(String macAddress){
-      try{
+
+   private static String replaceAddress(String macAddress) {
+      try {
          macAddress = macAddress.replaceAll(":", "");
-      }catch (Exception e){
+      } catch (Exception e) {
       }
-      try{
+      try {
          macAddress = macAddress.replaceAll("-", "");
-      }catch (Exception e){
+      } catch (Exception e) {
       }
       return macAddress;
    }
@@ -76,6 +76,14 @@ public class Util {
       String nameFileOutBin = nameFileOut.toUpperCase() + Constante.FORMAT_FILE_BIN + " ";
       String pathFileBin = readProperties(PATH_DOCSIS_DATA) + nameFileOutBin;
       return pathFileBin;
+   }
+
+   public static String generatePathFileBinCMDWithoutSpace(String nameFileOut) {
+      nameFileOut = replaceAddress(nameFileOut);
+      nameFileOut = nameFileOut.replaceAll(Constante.NAME_FILE_OUT_WITHOUT, Constante.NAME_FILE_OUT);
+      String nameFileOutBin = nameFileOut.toUpperCase() + Constante.FORMAT_FILE_BIN;
+      String pathFileBin = readProperties(PATH_DOCSIS_DATA) + nameFileOutBin;
+      return pathFileBin.trim();
    }
 
    public static String generateNameFileBinCMD(String nameFileOut) {
@@ -102,9 +110,9 @@ public class Util {
 
          return properties.getProperty(name);
       } catch (FileNotFoundException e) {
-         LOGGER.error("Error leyendo "+name, e);
+         LOGGER.error("Error leyendo " + name, e);
       } catch (IOException e) {
-         LOGGER.error("Error leyendo "+name, e);
+         LOGGER.error("Error leyendo " + name, e);
       }
 
       return "";
@@ -118,9 +126,9 @@ public class Util {
 
          return Integer.parseInt(properties.getProperty(name));
       } catch (FileNotFoundException e) {
-         LOGGER.error("Error leyendo "+name, e);
+         LOGGER.error("Error leyendo " + name, e);
       } catch (IOException e) {
-         LOGGER.error("Error leyendo "+name, e);
+         LOGGER.error("Error leyendo " + name, e);
       }
 
       return 0;

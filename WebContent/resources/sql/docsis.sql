@@ -1,7 +1,12 @@
-CREATE TABLE `user_configuration` (
-  `user` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`user`),
-  UNIQUE INDEX `user_UNIQUE` (`user` ASC));
+CREATE SCHEMA docsis;
+CREATE USER 'docsis'@'localhost' IDENTIFIED BY 'Claro2015*';
+GRANT ALL PRIVILEGES ON docsis.* to docsis@localhost ;
+USE docsis;
+
+CREATE TABLE user_configuration (
+  user VARCHAR(100) NOT NULL,
+  PRIMARY KEY (user),
+  UNIQUE INDEX user_UNIQUE (user ASC));
   
 CREATE TABLE `docsis_audit` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -16,3 +21,6 @@ CREATE TABLE `docsis_audit` (
   `fecha` date NOT NULL,
   PRIMARY KEY (`id`)
 );
+
+
+

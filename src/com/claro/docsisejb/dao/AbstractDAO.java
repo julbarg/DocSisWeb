@@ -10,7 +10,7 @@ public abstract class AbstractDAO<T extends Serializable> {
 
    private Class<T> clase;
 
-   @PersistenceContext(unitName = "LoginPU")
+   @PersistenceContext(unitName = "DocSisPU")
    EntityManager entityManager;
 
    public final void setClase(final Class<T> entity) {

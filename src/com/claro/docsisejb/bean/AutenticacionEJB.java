@@ -25,6 +25,12 @@ public class AutenticacionEJB implements AutenticacionRemote {
 
    public UsuarioDTO autenticar(UsuarioDTO usuario) throws RemoteException, ServiceException {
 
+      // TODO Test
+      if (true) {
+         usuario.setConfigManaged(true);
+         return usuario;
+      }
+
       LDAPAuthenticationServicesServiceLocator ldapL = new LDAPAuthenticationServicesServiceLocator();
       LDAPAuthenticationServices query;
       query = ldapL.getLDAPAuthenticationServices();
@@ -38,6 +44,5 @@ public class AutenticacionEJB implements AutenticacionRemote {
          return null;
       }
    }
-
 
 }
